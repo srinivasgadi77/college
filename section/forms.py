@@ -18,7 +18,7 @@ class RegistrationForm(UserCreationForm):
             user=super(RegistrationForm,self).save(commit=False)
             user.first_name = self.cleaned_data['first_name']
             uesr.last_name = self.cleaned_data(['last_name']
-            user.email = self.cleaned_data['email']
+            user.email = self.cleaned_data['email'] #its prompring some errors here, not sure what exctly that
             if commit:
                 user.save()
 
