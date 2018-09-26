@@ -5,20 +5,20 @@ from django.contrib.auth.forms import UserCreationForm
 class RegistrationForm(UserCreationForm):
     email = forms.EmailField(required=True)
     class Meta:
-        models = User
+        model = User
         fields = (
                 'username',
                 'first_name',
                 'last_name',
                 'email',
                 'password1',
-                'password2',
+                'password2'
         )
-        def save(self, commit=True):
-            user=super(RegistrationForm,self).save(commit=False)
+    def save(self, commit=True):
+            user = super(RegistrationForm, self).save(commit=False)
             user.first_name = self.cleaned_data['first_name']
-            uesr.last_name = self.cleaned_data(['last_name']
-            user.email = self.cleaned_data['email'] #its prompring some errors here, not sure what exctly that
+            user.last_name  = self.cleaned_data['last_name']
+            user.email      = self.cleaned_data['email'] 
             if commit:
                 user.save()
 
